@@ -1,0 +1,214 @@
+<svg width="900" height="745" viewBox="0 0 900 745" xmlns="http://www.w3.org/2000/svg">
+<style>
+  text { font-family: Arial, sans-serif; }
+  .th  { font-size: 13px; font-weight: 700; fill: #1a1a1a; }
+  .ts  { font-size: 11px; font-weight: 400; fill: #444; }
+  .lbl { font-size: 10px; fill: #888; font-style: italic; }
+  .hd  { font-size: 12px; font-weight: 700; fill: #fff; }
+  .box-teal   { fill: #E1F5EE; stroke: #0F6E56; stroke-width: 0.8; }
+  .box-purple { fill: #EEEDFE; stroke: #534AB7; stroke-width: 0.8; }
+  .box-coral  { fill: #FAECE7; stroke: #993C1D; stroke-width: 0.8; }
+  .box-amber  { fill: #FFF8ED; stroke: #854F0B; stroke-width: 0.8; }
+  .box-gray   { fill: #F4F4F0; stroke: #5F5E5A; stroke-width: 0.8; }
+  .hdr-teal   { fill: #0F6E56; }
+  .hdr-purple { fill: #534AB7; }
+  .hdr-coral  { fill: #993C1D; }
+  .hdr-amber  { fill: #854F0B; }
+  .hdr-gray   { fill: #5F5E5A; }
+  .arr { stroke: #666; stroke-width: 1.2; fill: none; marker-end: url(#arr); }
+  .sep { stroke: #ddd; stroke-width: 0.8; stroke-dasharray: 5 4; }
+</style>
+<defs>
+  <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5"
+          markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M2 1L8 5L2 9" fill="none" stroke="#666" stroke-width="1.5"
+          stroke-linecap="round" stroke-linejoin="round"/>
+  </marker>
+</defs>
+
+<!-- ── LAYER LABELS (far left) ─────────────────────────────── -->
+<text class="lbl" transform="rotate(-90,14,82)"  x="14" y="82"  text-anchor="middle">Input</text>
+<text class="lbl" transform="rotate(-90,14,240)" x="14" y="240" text-anchor="middle">Processing</text>
+<text class="lbl" transform="rotate(-90,14,420)" x="14" y="420" text-anchor="middle">AI Model</text>
+<text class="lbl" transform="rotate(-90,14,555)" x="14" y="555" text-anchor="middle">Output</text>
+<text class="lbl" transform="rotate(-90,14,660)" x="14" y="660" text-anchor="middle">Record</text>
+
+<!-- ═══════════════════════════════════════════════════════════
+     LAYER 0 — INPUT  (y 30–96)
+════════════════════════════════════════════════════════════ -->
+<!-- Box 1: Voice -->
+<rect x="36"  y="30" width="185" height="66" rx="7" class="box-teal"/>
+<rect x="36"  y="30" width="185" height="20" rx="7" class="hdr-teal"/>
+<rect x="36"  y="44" width="185" height="6"  fill="#0F6E56"/>
+<text class="hd" x="128" y="44" text-anchor="middle">Voice Input</text>
+<text class="ts" x="128" y="62" text-anchor="middle">Patient / CHW</text>
+<text class="ts" x="128" y="77" text-anchor="middle">Natural Thai speech</text>
+
+<!-- Box 2: Text/Form -->
+<rect x="236" y="30" width="185" height="66" rx="7" class="box-teal"/>
+<rect x="236" y="30" width="185" height="20" rx="7" class="hdr-teal"/>
+<rect x="236" y="44" width="185" height="6"  fill="#0F6E56"/>
+<text class="hd" x="328" y="44" text-anchor="middle">Structured Q&amp;A</text>
+<text class="ts" x="328" y="62" text-anchor="middle">Text / form input</text>
+<text class="ts" x="328" y="77" text-anchor="middle">Vital signs</text>
+
+<!-- Box 3: History (offline-first) -->
+<rect x="436" y="30" width="185" height="66" rx="7" class="box-teal"/>
+<rect x="436" y="30" width="185" height="20" rx="7" class="hdr-teal"/>
+<rect x="436" y="44" width="185" height="6"  fill="#0F6E56"/>
+<text class="hd" x="528" y="44" text-anchor="middle">Medical History</text>
+<text class="ts" x="528" y="62" text-anchor="middle">From HIS (if connected)</text>
+<text class="ts" x="528" y="77" text-anchor="middle">or manual entry</text>
+
+<!-- Box 4: Lab / Context -->
+<rect x="636" y="30" width="228" height="66" rx="7" class="box-teal"/>
+<rect x="636" y="30" width="228" height="20" rx="7" class="hdr-teal"/>
+<rect x="636" y="44" width="228" height="6"  fill="#0F6E56"/>
+<text class="hd" x="750" y="44" text-anchor="middle">Point-of-care Results</text>
+<text class="ts" x="750" y="62" text-anchor="middle">Temp / BP / SpO2</text>
+<text class="ts" x="750" y="77" text-anchor="middle">Entered by CHW</text>
+
+<!-- separator 0→1 -->
+<line x1="28" y1="106" x2="872" y2="106" class="sep"/>
+
+<!-- arrows layer0 → layer1 -->
+<line x1="128" y1="96" x2="180" y2="136" class="arr"/>
+<line x1="328" y1="96" x2="290" y2="136" class="arr"/>
+<line x1="528" y1="96" x2="480" y2="136" class="arr"/>
+<line x1="750" y1="96" x2="680" y2="136" class="arr"/>
+
+<!-- ═══════════════════════════════════════════════════════════
+     LAYER 1 — PREPROCESSING  (y 116–192)
+════════════════════════════════════════════════════════════ -->
+<!-- ASR -->
+<rect x="36"  y="116" width="250" height="66" rx="7" class="box-purple"/>
+<rect x="36"  y="116" width="250" height="20" rx="7" class="hdr-purple"/>
+<rect x="36"  y="130" width="250" height="6"  fill="#534AB7"/>
+<text class="hd" x="161" y="130" text-anchor="middle">Speech Recognition (ASR)</text>
+<text class="ts" x="161" y="148" text-anchor="middle">Whisper fine-tuned (Thai medical)</text>
+<text class="ts" x="161" y="163" text-anchor="middle">Word Error Rate &#x2264;10%</text>
+
+<!-- Text Preprocessor -->
+<rect x="300" y="116" width="250" height="66" rx="7" class="box-purple"/>
+<rect x="300" y="116" width="250" height="20" rx="7" class="hdr-purple"/>
+<rect x="300" y="130" width="250" height="6"  fill="#534AB7"/>
+<text class="hd" x="425" y="130" text-anchor="middle">Text Preprocessor</text>
+<text class="ts" x="425" y="148" text-anchor="middle">Clean / normalise</text>
+<text class="ts" x="425" y="163" text-anchor="middle">Merge all input streams</text>
+
+<!-- Local DB + optional HIS Sync -->
+<rect x="564" y="116" width="300" height="66" rx="7" class="box-purple"/>
+<rect x="564" y="116" width="300" height="20" rx="7" class="hdr-purple"/>
+<rect x="564" y="130" width="300" height="6"  fill="#534AB7"/>
+<text class="hd" x="714" y="130" text-anchor="middle">Local Database (SQLite)</text>
+<text class="ts" x="714" y="148" text-anchor="middle">Offline-first read / write</text>
+<text class="ts" x="714" y="163" text-anchor="middle">Sync to HIS when connected &#x2020;</text>
+
+<!-- separator 1→2 -->
+<line x1="28" y1="192" x2="872" y2="192" class="sep"/>
+
+<!-- arrows layer1 → layer2 -->
+<line x1="161" y1="182" x2="340" y2="222" class="arr"/>
+<line x1="425" y1="182" x2="400" y2="222" class="arr"/>
+<line x1="714" y1="182" x2="460" y2="222" class="arr"/>
+
+<!-- ═══════════════════════════════════════════════════════════
+     LAYER 2 — NER + SLOT FILLING  (y 202–278)
+════════════════════════════════════════════════════════════ -->
+<rect x="150" y="202" width="574" height="76" rx="7" class="box-purple"/>
+<rect x="150" y="202" width="574" height="22" rx="7" class="hdr-purple"/>
+<rect x="150" y="218" width="574" height="6"  fill="#534AB7"/>
+<text class="hd" x="437" y="218" text-anchor="middle">NER + Slot Filling</text>
+<text class="ts" x="437" y="240" text-anchor="middle">Extract: symptoms &#xB7; exposure history &#xB7; illness duration &#xB7; current medications</text>
+<text class="ts" x="437" y="256" text-anchor="middle">Values: BP &#xB7; temperature &#xB7; SpO2 &#xB7; FBS &#xB7; weight</text>
+<text class="ts" x="437" y="272" text-anchor="middle">Tool: GLiNER (zero-shot) + domain-specific rules</text>
+
+<!-- separator 2→3 -->
+<line x1="28"  y1="289" x2="872" y2="289" class="sep"/>
+<line x1="437" y1="278" x2="437" y2="305" class="arr"/>
+
+<!-- ═══════════════════════════════════════════════════════════
+     LAYER 3 — AI RISK MODEL  (y 305–391)
+════════════════════════════════════════════════════════════ -->
+<rect x="100" y="305" width="674" height="86" rx="7" class="box-coral"/>
+<rect x="100" y="305" width="674" height="22" rx="7" class="hdr-coral"/>
+<rect x="100" y="319" width="674" height="6"  fill="#993C1D"/>
+<text class="hd" x="437" y="319" text-anchor="middle">AI Risk Assessment Model</text>
+<text class="ts" x="437" y="342" text-anchor="middle">Bayesian approach (CCRU Chiang Rai prevalence priors) + LLM reasoning layer</text>
+<text class="ts" x="437" y="360" text-anchor="middle">Target diseases: scrub typhus &#xB7; dengue &#xB7; leptospirosis &#xB7; bacteraemia / sepsis</text>
+<text class="ts" x="437" y="378" text-anchor="middle">Hallucination guard: output locked to structured slot data only</text>
+
+<!-- separator 3→4 -->
+<line x1="28" y1="400" x2="872" y2="400" class="sep"/>
+
+<!-- arrows layer3 → layer4 (3 outputs) -->
+<line x1="240" y1="391" x2="185" y2="430" class="arr"/>
+<line x1="437" y1="391" x2="437" y2="430" class="arr"/>
+<line x1="634" y1="391" x2="690" y2="430" class="arr"/>
+
+<!-- ═══════════════════════════════════════════════════════════
+     LAYER 4 — OUTPUT  (y 430–510)
+════════════════════════════════════════════════════════════ -->
+<!-- Output 1: Triage Recommendation -->
+<rect x="36"  y="430" width="290" height="80" rx="7" class="box-amber"/>
+<rect x="36"  y="430" width="290" height="22" rx="7" class="hdr-amber"/>
+<rect x="36"  y="444" width="290" height="6"  fill="#854F0B"/>
+<text class="hd" x="181" y="444" text-anchor="middle">Triage Recommendation</text>
+<text class="ts" x="181" y="466" text-anchor="middle">Manage locally / refer / urgent referral</text>
+<text class="ts" x="181" y="482" text-anchor="middle">With clinical rationale</text>
+<text class="ts" x="181" y="498" text-anchor="middle">Displayed on app</text>
+
+<!-- Output 2: Draft SOAP -->
+<rect x="342" y="430" width="190" height="80" rx="7" class="box-amber"/>
+<rect x="342" y="430" width="190" height="22" rx="7" class="hdr-amber"/>
+<rect x="342" y="444" width="190" height="6"  fill="#854F0B"/>
+<text class="hd" x="437" y="444" text-anchor="middle">Draft SOAP Note</text>
+<text class="ts" x="437" y="466" text-anchor="middle">Auto-filled: S / O / A sections</text>
+<text class="ts" x="437" y="482" text-anchor="middle">Clinician completes Plan (P)</text>
+<text class="ts" x="437" y="498" text-anchor="middle">before approval</text>
+
+<!-- Output 3: AMR Signal -->
+<rect x="548" y="430" width="316" height="80" rx="7" class="box-amber"/>
+<rect x="548" y="430" width="316" height="22" rx="7" class="hdr-amber"/>
+<rect x="548" y="444" width="316" height="6"  fill="#854F0B"/>
+<text class="hd" x="706" y="444" text-anchor="middle">AMR Stewardship Signal</text>
+<text class="ts" x="706" y="466" text-anchor="middle">Antibiotic stewardship</text>
+<text class="ts" x="706" y="482" text-anchor="middle">Flag + prescribing guidance</text>
+<text class="ts" x="706" y="498" text-anchor="middle">Aligned with National AMR Plan</text>
+
+<!-- separator 4→5 -->
+<line x1="28" y1="520" x2="872" y2="520" class="sep"/>
+
+<!-- arrows layer4 → layer5 -->
+<line x1="181" y1="510" x2="310" y2="550" class="arr"/>
+<line x1="437" y1="510" x2="437" y2="550" class="arr"/>
+<line x1="706" y1="510" x2="565" y2="550" class="arr"/>
+
+<!-- ═══════════════════════════════════════════════════════════
+     LAYER 5 — CLINICIAN REVIEW + HIS  (y 550–630)
+════════════════════════════════════════════════════════════ -->
+<!-- Review -->
+<rect x="140" y="550" width="390" height="70" rx="7" class="box-gray"/>
+<rect x="140" y="550" width="390" height="22" rx="7" class="hdr-gray"/>
+<rect x="140" y="564" width="390" height="6"  fill="#5F5E5A"/>
+<text class="hd" x="335" y="564" text-anchor="middle">Clinician Review &amp; Approve</text>
+<text class="ts" x="335" y="584" text-anchor="middle">Review, edit and countersign</text>
+<text class="ts" x="335" y="600" text-anchor="middle">before every record is saved</text>
+
+<!-- HIS box — optional when connected -->
+<rect x="548" y="550" width="316" height="70" rx="7" class="box-gray" stroke-dasharray="6 3"/>
+<rect x="548" y="550" width="316" height="22" rx="7" class="hdr-gray" opacity="0.75"/>
+<rect x="548" y="564" width="316" height="6"  fill="#5F5E5A" opacity="0.75"/>
+<text class="hd" x="706" y="564" text-anchor="middle">HIS / EMR (optional &#x2020;)</text>
+<text class="ts" x="706" y="584" text-anchor="middle">Sync via FHIR R4</text>
+<text class="ts" x="706" y="600" text-anchor="middle">when internet is available</text>
+
+<!-- arrow review → HIS (dashed = optional path) -->
+<line x1="530" y1="585" x2="548" y2="585" class="arr" stroke-dasharray="5 3"/>
+
+<!-- Offline-first legend -->
+<rect x="28" y="638" width="844" height="34" rx="5" fill="#FFF8ED" stroke="#854F0B" stroke-width="0.8" stroke-dasharray="5 3"/>
+<text style="font-size:10px;fill:#854F0B;font-weight:700" x="40"  y="652" text-anchor="start">&#x2020; Offline-first design:</text>
+<text style="font-size:10px;fill:#555"                   x="178" y="652" text-anchor="start">System operates fully without HIS &#x2014; data stored in on-device SQLite; auto-synced to HIS when internet is available.</text>
+<text style="font-size:10px;fill:#555"                   x="40"  y="665" text-anchor="start">3 operating modes: (1) Standalone &#x2014; no internet&#x2002; (2) Cached &#x2014; intermittent signal&#x2002; (3) Connected &#x2014; live HIS sync</text>
+</svg>
